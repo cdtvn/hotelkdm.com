@@ -16,7 +16,7 @@ sequenceDiagram
         participant oai as Azure Open AI
     end 
 
-    rect rgb(30,30,30)
+    rect rgb(0,0,0)
         Note right of Client: 画像データ格納API呼び出し
         Client->>+API: 画像データ
         Note right of API: 画像データをデコード、格納
@@ -27,7 +27,7 @@ sequenceDiagram
         API-->>-Client: 画像ID
     end 
     
-    rect rgb(30,30,30)
+    rect rgb(0,0,0)
         Note right of Batch: 画像OCR処理+OAIによる解析処理(Queueトリガ)
         loop Queue監視
             Batch->>+Table: 画像ID
@@ -43,7 +43,7 @@ sequenceDiagram
         end
     end
 
-    rect rgb(30,30,30)
+    rect rgb(0,0,0)
         Note right of Client: 画像データ取得API呼び出し
         Client->>+API: 画像ID,[項目指定]
 
@@ -55,7 +55,7 @@ sequenceDiagram
     end
 
 
-    rect rgb(30,30,30)
+    rect rgb(0,0,0)
         Note right of Client: マスク画像取得API呼び出し
         Client->>+API: 画像ID,[項目指定]or[マスク座標指定]
 
@@ -73,7 +73,7 @@ sequenceDiagram
         API->>-Client: 画像(シリアライズ)
     end
 
-    rect rgb(30,30,30)
+    rect rgb(0,0,0)
         Note right of Client: 画像データ削除API呼び出し
         Client->>+API: 画像データID
         Note right of API: 画像データを削除
